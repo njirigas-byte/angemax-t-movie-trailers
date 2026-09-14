@@ -1,127 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Angemax Movie Trailers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angemax Movies</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+}
 
-    header {
-      background: #e50914;
-      padding: 20px;
-      text-align: center;
-    }
+header {
+    background: #e50914;
+    padding: 22px;
+    text-align: center;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
 
-    header p {
-      margin: 8px 0 0;
-    }
+header p {
+    margin: 6px 0 0;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+.container {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
 
-    .trailer {
-      background: #222;
-      margin-bottom: 25px;
-      padding: 20px;
-      border-radius: 12px;
-    }
+.search {
+    width: 100%;
+    padding: 14px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
 
-    .trailer h2 {
-      margin-top: 0;
-    }
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-    .trailer iframe {
-      width: 100%;
-      height: 450px;
-      border: none;
-      border-radius: 10px;
-    }
+.movie {
+    background: #171717;
+    border-radius: 12px;
+    overflow: hidden;
+    padding-bottom: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
 
-    .watch {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      background: #e50914;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
+.movie .poster {
+    height: 150px;
+    background: linear-gradient(135deg, #333, #111);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #aaa;
-    }
+.movie h2 {
+    font-size: 20px;
+    margin: 15px 15px 8px;
+}
 
-    @media (max-width: 600px) {
-      .trailer iframe {
-        height: 220px;
-      }
+.movie p {
+    color: #bbb;
+    margin: 0 15px 15px;
+    line-height: 1.4;
+}
 
-      header h1 {
-        font-size: 26px;
-      }
-    }
-  </style>
+.button {
+    display: block;
+    margin: 0 15px;
+    padding: 12px;
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #ff1b26;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🎬 ANGEMAX</h1>
+<header>
+    <h1>🎬 ANGEMAX MOVIES</h1>
     <p>Latest Movie Trailers</p>
-  </header>
+</header>
 
-  <div class="container">
+<div class="container">
 
-    <div class="trailer">
-      <h2>Movie Trailer 1</h2>
+<input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="🔍 Search movies..."
+    onkeyup="searchMovies()"
+>
 
-      <iframe
-        src="https://www.youtube.com/embed/VIDEO_ID_1"
-        allowfullscreen>
-      </iframe>
+<div class="movies" id="movies">
 
-      <a class="watch" href="https://www.youtube.com/" target="_blank">
+<!-- 1 -->
+<div class="movie">
+    <div class="poster">🎬</div>
+    <h2>Red Notice</h2>
+    <p>An FBI agent tracks the world's most wanted art thief.</p>
+    <a class="button" href="https://www.youtube.com/results?search_query=Red+Notice+official+trailer" target="_blank">
         ▶️ Watch Trailer
-      </a>
-    </div>
+    </a>
+</div>
 
-    <div class="trailer">
-      <h2>Movie Trailer 2</h2>
-
-      <iframe
-        src="https://www.youtube.com/embed/VIDEO_ID_2"
-        allowfullscreen>
-      </iframe>
-
-      <a class="watch" href="https://www.youtube.com/" target="_blank">
+<!-- 2 -->
+<div class="movie">
+    <div class="poster">🎬</div>
+    <h2>The Covenant</h2>
+    <p>A soldier returns to Afghanistan to repay a life-saving debt.</p>
+    <a class="button" href="https://www.youtube.com/results?search_query=Guy+Ritchie+The+Covenant+official+trailer" target="_blank">
         ▶️ Watch Trailer
-      </a>
-    </div>
+    </a>
+</div>
 
-  </div>
+<!-- 3 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 3</h2><p>Coming soon.</p><a class="button" href="#" >▶️ Watch Trailer</a></div>
 
-  <footer>
-    ©️ 2026 Angemax — Movie Trailers
-  </footer>
+<!-- 4 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 4</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 5 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 5</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 6 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 6</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 7 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 7</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 8 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 8</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 9 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 9</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 10 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 10</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 11 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 11</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 12 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 12</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 13 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 13</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 14 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 14</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 15 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 15</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 16 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 16</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 17 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 17</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 18 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 18</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 19 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 19</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 20 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 20</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 21 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 21</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 22 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 22</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 23 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 23</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 24 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 24</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 25 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 25</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 26 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 26</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 27 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 27</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 28 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 28</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 29 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 29</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+<!-- 30 -->
+<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 30</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+
+</div>
+</div>
+
+<script>
+function searchMovies() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let movies = document.getElementsByClassName("movie");
+
+    for (let i = 0; i < movies.length; i++) {
+        let title = movies[i].innerText.toLowerCase();
+
+        if (title.includes(input)) {
+            movies[i].style.display = "";
+        } else {
+            movies[i].style.display = "none";
+        }
+    }
+}
+</script>
 
 </body>
 </html>
-
