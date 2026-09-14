@@ -1,118 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angemax T - Movie Trailers</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angemax Trailers</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
 
-header {
-    background: #e50914;
-    padding: 20px;
-    text-align: center;
-}
+    header {
+      background: #e50914;
+      padding: 25px 10px;
+      font-size: 30px;
+      font-weight: bold;
+    }
 
-header h1 {
-    margin: 0;
-    font-size: 32px;
-}
+    .container {
+      padding: 20px;
+    }
 
-header p {
-    margin: 8px 0 0;
-}
+    .trailer {
+      background: #222;
+      margin: 20px auto;
+      padding: 15px;
+      max-width: 700px;
+      border-radius: 12px;
+    }
 
-.container {
-    padding: 20px;
-    max-width: 1100px;
-    margin: auto;
-}
+    .trailer h2 {
+      margin-top: 5px;
+    }
 
-.movie {
-    background: #222;
-    margin-bottom: 25px;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.movie h2 {
-    margin-top: 0;
-}
-
-.video {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.video iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    background: #000;
-    color: #aaa;
-}
-</style>
+    video {
+      width: 100%;
+      border-radius: 10px;
+      background: black;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>🎬 ANGEMAX T</h1>
-    <p>Latest Movie Trailers</p>
-</header>
+  <header>
+    🎬 ANGEMAX
+  </header>
 
-<div class="container">
+  <div class="container">
 
-    <div class="movie">
-        <h2>Movie Trailer 1</h2>
-        <div class="video">
-            <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                allowfullscreen>
-            </iframe>
-        </div>
+    <div class="trailer">
+      <h2>Movie Trailer 1</h2>
+      <video controls>
+        <source src="trailer1.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
     </div>
 
-    <div class="movie">
-        <h2>Movie Trailer 2</h2>
-        <div class="video">
-            <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                allowfullscreen>
-            </iframe>
-        </div>
+    <div class="trailer">
+      <h2>Movie Trailer 2</h2>
+      <video controls>
+        <source src="trailer2.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
     </div>
 
-    <div class="movie">
-        <h2>Movie Trailer 3</h2>
-        <div class="video">
-            <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    ©️ 2026 Angemax T — Movie Trailers
-</footer>
+  </div>
 
 </body>
 </html>
