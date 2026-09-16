@@ -1,116 +1,603 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Angemax T-Movie Trailers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-    }
+<title>ANGEMAX T-MOVIE TRAILERS</title>
 
-    header {
-      text-align: center;
-      padding: 25px 10px;
-      background: #000;
-    }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    header img {
-      width: 220px;
-      max-width: 80%;
-      height: auto;
-      border-radius: 10px;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050505;
+    color: white;
+}
 
-    h1 {
-      margin: 15px 0 5px;
-      font-size: 28px;
-    }
+header {
+    text-align: center;
+    padding: 25px 15px;
+    background: linear-gradient(135deg, #111, #250000);
+    border-bottom: 2px solid #e50914;
+}
 
-    .subtitle {
-      color: #aaa;
-      margin-bottom: 20px;
-    }
+.logo {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #e50914;
+    text-shadow: 0 0 15px #e50914;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
+.subtitle {
+    margin-top: 8px;
+    color: #ddd;
+    font-size: 14px;
+}
 
-    .movie {
-      background: #1d1d1d;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      text-align: center;
-    }
+.search-box {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 0 15px;
+}
 
-    .movie h2 {
-      margin-top: 0;
-    }
+.search-box input {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    font-size: 16px;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+}
 
-    .trailer-btn {
-      display: inline-block;
-      padding: 12px 22px;
-      background: #e50914;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 15px 20px;
+}
 
-    .trailer-btn:hover {
-      background: #b20710;
-    }
+.categories button {
+    background: #222;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #888;
-    }
-  </style>
+.categories button:hover {
+    background: #e50914;
+    border-color: #e50914;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 15px 40px;
+}
+
+.section-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #e50914;
+    border-left: 4px solid #e50914;
+    padding-left: 10px;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.movie {
+    background: #151515;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #292929;
+    transition: 0.3s;
+}
+
+.movie:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+    box-shadow: 0 5px 20px rgba(229,9,20,0.25);
+}
+
+.movie-poster {
+    height: 130px;
+    background: linear-gradient(135deg, #300000, #111);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
+
+.movie-info {
+    padding: 15px;
+}
+
+.movie h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.genre {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.trailer-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #e50914;
+    color: white;
+    padding: 11px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.trailer-btn:hover {
+    background: #ff1a25;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #111;
+    color: #888;
+    margin-top: 30px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #aaa;
+    display: none;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <img src="logo png.jpeg" alt="Angemax Logo">
-    <h1>ANGEMAX T-MOVIE TRAILERS</h1>
-    <div class="subtitle">Watch the latest movie trailers</div>
-  </header>
+<header>
+    <div class="logo">ANGEMAX</div>
+    <div class="subtitle">T-MOVIE TRAILERS 🎬 | Watch the latest movie trailers</div>
 
-  <div class="container">
-
-    <div class="movie">
-      <h2>Red Notice</h2>
-      <p>Official Movie Trailer</p>
-      <a class="trailer-btn"
-         href="https://www.youtube.com/watch?v=Pj0wz7zu3Ms"
-         target="_blank">
-        ▶️ WATCH TRAILER
-      </a>
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search for a movie..."
+            onkeyup="searchMovies()"
+        >
     </div>
+</header>
 
-    <div class="movie">
-      <h2>The Covenant</h2>
-      <p>Official Movie Trailer</p>
-      <a class="trailer-btn"
-         href="https://www.youtube.com/results?search_query=The+Covenant+official+trailer"
-         target="_blank">
-        ▶️ WATCH TRAILER
-      </a>
-    </div>
+<div class="categories">
+    <button onclick="showCategory('all')">All</button>
+    <button onclick="showCategory('action')">💥 Action</button>
+    <button onclick="showCategory('horror')">👻 Horror / Thriller</button>
+    <button onclick="showCategory('scifi')">🚀 Sci-Fi / Adventure</button>
+    <button onclick="showCategory('comedy')">😂 Comedy / Popular</button>
+</div>
 
-  </div>
+<div class="container">
 
-  <footer>
-    ©️ 2026 Angemax T-Movie Trailers
-  </footer>
+<h2 class="section-title">🔥 Action</h2>
+<div class="movies">
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>Red Notice</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Red+Notice+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>The Covenant</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Covenant+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>John Wick: Chapter 4</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=John+Wick+Chapter+4+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>Extraction 2</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Extraction+2+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>Mission: Impossible – Dead Reckoning</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Mission+Impossible+Dead+Reckoning+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>The Gray Man</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Gray+Man+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>Nobody</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Nobody+movie+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>The Equalizer 3</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Equalizer+3+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>Den of Thieves 2: Pantera</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Den+of+Thieves+2+Pantera+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="action">
+<div class="movie-poster">🎬</div>
+<div class="movie-info">
+<h3>Ballerina</h3>
+<div class="genre">Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Ballerina+2025+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<h2 class="section-title">👻 Horror / Thriller</h2>
+<div class="movies">
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>The Day of the Jackal</h3>
+<div class="genre">Thriller</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Day+of+the+Jackal+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>Alien: Romulus</h3>
+<div class="genre">Horror / Sci-Fi</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Alien+Romulus+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>Longlegs</h3>
+<div class="genre">Horror / Thriller</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Longlegs+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>A Quiet Place: Day One</h3>
+<div class="genre">Horror</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=A+Quiet+Place+Day+One+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>The Substance</h3>
+<div class="genre">Horror / Thriller</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Substance+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>Trap</h3>
+<div class="genre">Thriller</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Trap+2024+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>Smile 2</h3>
+<div class="genre">Horror</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Smile+2+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>The First Omen</h3>
+<div class="genre">Horror</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+First+Omen+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>Heretic</h3>
+<div class="genre">Horror / Thriller</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Heretic+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="horror">
+<div class="movie-poster">👻</div>
+<div class="movie-info">
+<h3>Werewolves</h3>
+<div class="genre">Horror / Action</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Werewolves+2024+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<h2 class="section-title">🚀 Sci-Fi / Adventure</h2>
+<div class="movies">
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Dune: Part Two</h3>
+<div class="genre">Sci-Fi</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Dune+Part+Two+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Furiosa: A Mad Max Saga</h3>
+<div class="genre">Action / Adventure</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Furiosa+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Kingdom of the Planet of the Apes</h3>
+<div class="genre">Sci-Fi / Adventure</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Kingdom+of+the+Planet+of+the+Apes+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Atlas</h3>
+<div class="genre">Sci-Fi</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Atlas+2024+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Godzilla x Kong: The New Empire</h3>
+<div class="genre">Adventure / Sci-Fi</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Godzilla+x+Kong+The+New+Empire+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>The Creator</h3>
+<div class="genre">Sci-Fi</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Creator+2023+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Rebel Moon</h3>
+<div class="genre">Sci-Fi / Adventure</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Rebel+Moon+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>TRON: Ares</h3>
+<div class="genre">Sci-Fi</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=TRON+Ares+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Avatar: Fire and Ash</h3>
+<div class="genre">Sci-Fi / Adventure</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Avatar+Fire+and+Ash+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="scifi">
+<div class="movie-poster">🚀</div>
+<div class="movie-info">
+<h3>Jurassic World Rebirth</h3>
+<div class="genre">Adventure / Sci-Fi</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Jurassic+World+Rebirth+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<h2 class="section-title">😂 Comedy / Popular</h2>
+<div class="movies">
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>Deadpool & Wolverine</h3>
+<div class="genre">Action / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Deadpool+and+Wolverine+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>Free Guy</h3>
+<div class="genre">Action / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Free+Guy+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>The Fall Guy</h3>
+<div class="genre">Action / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Fall+Guy+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>Bad Boys: Ride or Die</h3>
+<div class="genre">Action / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Bad+Boys+Ride+or+Die+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>The Lost City</h3>
+<div class="genre">Adventure / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Lost+City+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>Bullet Train</h3>
+<div class="genre">Action / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Bullet+Train+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>Game Night</h3>
+<div class="genre">Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Game+Night+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>The Hitman's Bodyguard</h3>
+<div class="genre">Action / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Hitmans+Bodyguard+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>Central Intelligence</h3>
+<div class="genre">Action / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Central+Intelligence+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="movie" data-category="comedy">
+<div class="movie-poster">😂</div>
+<div class="movie-info">
+<h3>Anyone But You</h3>
+<div class="genre">Romance / Comedy</div>
+<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Anyone+But+You+official+trailer" target="_blank">▶ Watch Trailer</a>
+</div></div>
+
+<div class="no-results" id="noResults">
+    No movie found 😢
+</div>
+
+</div>
+
+<footer>
+    © 2026 ANGEMAX T-MOVIE TRAILERS 🎬<br>
+    All trailers are linked to YouTube.
+</footer>
+
+<script>
+function searchMovies() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let movies = document.querySelectorAll(".movie");
+    let found = false;
+
+    movies.forEach(function(movie) {
+        let title = movie.querySelector("h3").textContent.toLowerCase();
+
+        if (title.includes(input)) {
+            movie.style.display = "";
+            found = true;
+        } else {
+            movie.style.display = "none";
+        }
+    });
+
+    document.getElementById("noResults").style.display =
+        found ? "none" : "block";
+}
+
+function showCategory(category) {
+    let movies = document.querySelectorAll(".movie");
+    let sections = document.querySelectorAll(".section-title");
+
+    document.getElementById("search").value = "";
+
+    movies.forEach(function(movie) {
+        if (category === "all" ||
+            movie.getAttribute("data-category") === category) {
+            movie.style.display = "";
+        } else {
+            movie.style.display = "none";
+        }
+    });
+
+    sections.forEach(function(section) {
+        if (category === "all") {
+            section.style.display = "";
+        } else {
+            let title = section.textContent.toLowerCase();
+
+            if (
+                (category === "action" && title.includes("action")) ||
+                (category === "horror" && title.includes("horror")) ||
+                (category === "scifi" && title.includes("sci-fi")) ||
+                (category === "comedy" && title.includes("comedy"))
+            ) {
+                section.style.display = "";
+            } else {
+                section.style.display = "none";
+            }
+        }
+    });
+
+    document.getElementById("noResults").style.display = "none";
+}
+</script>
 
 </body>
 </html>
+```
