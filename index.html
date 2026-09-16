@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[14/09/2026, 12:08:16 PM] Hub: <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,86 +12,210 @@ body {
     background: #080808;
     color: white;
 }
+‎Read more
+[15/09/2026, 1:48:37 PM] Hub: Ikam
+[16/09/2026, 8:50:31 AM] Hub: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANGEMAX - Movie Trailers</title>
+
+<style>
+•⁠  ⁠{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #05080b;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 header {
-    background: #e50914;
-    padding: 22px;
-    text-align: center;
+    background: #080d12;
+    border-bottom: 1px solid #26313a;
+    padding: 12px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 32px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-header p {
-    margin: 6px 0 0;
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
 }
 
-.container {
-    padding: 20px;
-    max-width: 1100px;
-    margin: auto;
+.logo span {
+    color: #ff2028;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff2028;
 }
 
 .search {
-    width: 100%;
-    padding: 14px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    border: none;
-    margin-bottom: 25px;
-    font-size: 16px;
+    background: #111a22;
+    border: 1px solid #263642;
+    color: white;
+    border-radius: 25px;
+    padding: 12px 18px;
+    width: 220px;
+}
+
+.hero {
+    min-height: 250px;
+    background: linear-gradient(90deg, #030405, #11151a, #030405);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.hero h1 {
+    color: #ff2028;
+    font-size: 55px;
+    letter-spacing: 4px;
+}
+
+.hero p {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+.container {
+    padding: 20px 2%;
+}
+
+.category {
+    margin-bottom: 28px;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #26313a;
+    padding-bottom: 10px;
+}
+
+.category-title h2 {
+    font-size: 23px;
+}
+
+.category-title span {
+    color: #ff2028;
 }
 
 .movies {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
 }
 
 .movie {
-    background: #171717;
-    border-radius: 12px;
-    overflow: hidden;
-    padding-bottom: 18px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-
-.movie .poster {
-    height: 150px;
-    background: linear-gradient(135deg, #333, #111);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-}
-
-.movie h2 {
-    font-size: 20px;
-    margin: 15px 15px 8px;
-}
-
-.movie p {
-    color: #bbb;
-    margin: 0 15px 15px;
-    line-height: 1.4;
-}
-
-.button {
-    display: block;
-    margin: 0 15px;
-    padding: 12px;
-    background: #e50914;
-    color: white;
-    text-decoration: none;
-    text-align: center;
+    background: #0c1319;
+    border: 1px solid #29343d;
     border-radius: 7px;
-    font-weight: bold;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
-.button:hover {
-    background: #ff1b26;
+.movie:hover {
+    transform: translateY(-5px);
+    border-color: #ff2028;
+}
+
+.movie iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    display: block;
+}
+
+.movie h3 {
+    font-size: 14px;
+    padding: 10px;
+    min-height: 45px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    border-top: 1px solid #26313a;
+    margin-top: 20px;
+}
+
+@media (max-width: 1000px) {
+    .movies {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    header {
+        padding: 8px 12px;
+    }
+
+    .logo span {
+        font-size: 21px;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .search {
+        width: 130px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .movies {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .movie h3 {
+        font-size: 12px;
+    }
 }
 </style>
 </head>
@@ -99,143 +223,301 @@ header p {
 <body>
 
 <header>
-    <h1>🎬 ANGEMAX MOVIES</h1>
-    <p>Latest Movie Trailers</p>
+    <div class="logo">
+        <img src="logo.png" alt="ANGEMAX Logo">
+        <span>ANGEMAX</span>
+    </div>
+
+    <nav>
+        <a href="#action">Action</a>
+        <a href="#romance">Romance</a>
+        <a href="#scifi">Sci-Fi</a>
+        <a href="#adventure">Adventure</a>
+    </nav>
+
+    <input class="search" type="text" placeholder="Search movies..." onkeyup="searchMovies()">
 </header>
+
+<section class="hero">
+    <div>
+        <h1>ANGEMAX</h1>
+        <p>🎬 THE BEST MOVIE TRAILERS • BIGGER STORIES • SAME PASSION</p>
+    </div>
+</section>
 
 <div class="container">
 
-<input
-    type="text"
-    id="search"
-    class="search"
-    placeholder="🔍 Search movies..."
-    onkeyup="searchMovies()"
->
+<!-- ACTION -->
+<section class="category" id="action">
+<div class="category-title">
+    <h2>🎬 ACTION</h2>
+    <span>| 10 BEST</span>
+</div>
 
-<div class="movies" id="movies">
+<div class="movies">
 
-<!-- 1 -->
 <div class="movie">
-    <div class="poster">🎬</div>
-    <h2>Red Notice</h2>
-    <p>An FBI agent tracks the world's most wanted art thief.</p>
-    <a class="button" href="https://www.youtube.com/results?search_query=Red+Notice+official+trailer" target="_blank">
-        ▶️ Watch Trailer
-    </a>
+<iframe src="https://www.youtube.com/embed/qEVU3r4ESiI" allowfullscreen></iframe>
+<h3>John Wick: Chapter 4</h3>
 </div>
 
-<!-- 2 -->
 <div class="movie">
-    <div class="poster">🎬</div>
-    <h2>The Covenant</h2>
-    <p>A soldier returns to Afghanistan to repay a life-saving debt.</p>
-    <a class="button" href="https://www.youtube.com/results?search_query=Guy+Ritchie+The+Covenant+official+trailer" target="_blank">
-        ▶️ Watch Trailer
-    </a>
+<iframe src="https://www.youtube.com/embed/Y274jZs5s7s" allowfullscreen></iframe>
+<h3>Extraction 2</h3>
 </div>
 
-<!-- 3 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 3</h2><p>Coming soon.</p><a class="button" href="#" >▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/avz06PDqDbM" allowfullscreen></iframe>
+<h3>Mission: Impossible - Dead Reckoning</h3>
+</div>
 
-<!-- 4 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 4</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/BmllghI1FwA" allowfullscreen></iframe>
+<h3>The Gray Man</h3>
+</div>
 
-<!-- 5 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 5</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/eoOaKN4qCKw" allowfullscreen></iframe>
+<h3>Fast X</h3>
+</div>
 
-<!-- 6 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 6</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/-2T1lYl1uD4c" allowfullscreen></iframe>
+<h3>Nobody 2</h3>
+</div>
 
-<!-- 7 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 7</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/CHKn-yDCE2U" allowfullscreen></iframe>
+<h3>The Beekeeper</h3>
+</div>
 
-<!-- 8 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 8</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/0IOsk2Vlc4o" allowfullscreen></iframe>
+<h3>Bullet Train</h3>
+</div>
 
-<!-- 9 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 9</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/giXco0vhXcc" allowfullscreen></iframe>
+<h3>Top Gun: Maverick</h3>
+</div>
 
-<!-- 10 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 10</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 11 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 11</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 12 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 12</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 13 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 13</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 14 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 14</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 15 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 15</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 16 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 16</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 17 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 17</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 18 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 18</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 19 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 19</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 20 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 20</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 21 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 21</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 22 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 22</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 23 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 23</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 24 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 24</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 25 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 25</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 26 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 26</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 27 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 27</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 28 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 28</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 29 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 29</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
-
-<!-- 30 -->
-<div class="movie"><div class="poster">🎬</div><h2>Movie Trailer 30</h2><p>Coming soon.</p><a class="button" href="#">▶️ Watch Trailer</a></div>
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/4rgYUipGJNo" allowfullscreen></iframe>
+<h3>Gladiator II</h3>
+</div>
 
 </div>
+</section>
+
+
+<!-- ROMANCE -->
+<section class="category" id="romance">
+<div class="category-title">
+    <h2>❤️ LOVE / ROMANCE</h2>
+    <span>| 10 BEST</span>
 </div>
+
+<div class="movies">
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/yDJIcYE32NU" allowfullscreen></iframe>
+<h3>The Notebook</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/Eh993__rOxA" allowfullscreen></iframe>
+<h3>Me Before You</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/1y5hIKygrB0" allowfullscreen></iframe>
+<h3>After Everything</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/WTLgg1g3z-0" allowfullscreen></iframe>
+<h3>Purple Hearts</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/_zxvkiU3C-g" allowfullscreen></iframe>
+<h3>Through My Window</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/R0S9c_DBlVw" allowfullscreen></iframe>
+<h3>The Idea of You</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/UtjH6SkK0A8" allowfullscreen></iframe>
+<h3>Anyone But You</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/kA244xgnYzE" allowfullscreen></iframe>
+<h3>Past Lives</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/-mu2i1jj3bY" allowfullscreen></iframe>
+<h3>Love At First Sight</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/kVrqfYjkTdQ" allowfullscreen></iframe>
+<h3>Titanic</h3>
+</div>
+
+</div>
+</section>
+
+
+<!-- SCI-FI -->
+<section class="category" id="scifi">
+<div class="category-title">
+    <h2>🚀 SCI-FI</h2>
+    <span>| 10 BEST</span>
+</div>
+
+<div class="movies">
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/Way9Dexny3w" allowfullscreen></iframe>
+<h3>Dune: Part Two</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/d9MyW72ELq0" allowfullscreen></iframe>
+<h3>Avatar: The Way of Water</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/zSWdZVtXT7E" allowfullscreen></iframe>
+<h3>Interstellar</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/ex3C1-5Dhb8" allowfullscreen></iframe>
+<h3>The Creator</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/aW7DlEw3a0M" allowfullscreen></iframe>
+<h3>Rebel Moon</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/YoHD9XEInc0" allowfullscreen></iframe>
+<h3>Inception</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/lV1OOlGwExM" allowfullscreen></iframe>
+<h3>Godzilla x Kong: The New Empire</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/2QKg3r2R2fQ" allowfullscreen></iframe>
+<h3>65</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/BRb4U99FbuY" allowfullscreen></iframe>
+<h3>M3GAN</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/JBjB6qSdgH8" allowfullscreen></iframe>
+<h3>Avengers: Secret Wars Trailer Tease</h3>
+</div>
+
+</div>
+</section>
+
+
+<!-- ADVENTURE -->
+<section class="category" id="adventure">
+<div class="category-title">
+    <h2>🏔️ ADVENTURE</h2>
+    <span>| 10 BEST</span>
+</div>
+
+<div class="movies">
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/eQfMbSe7F2g" allowfullscreen></iframe>
+<h3>Indiana Jones and the Dial of Destiny</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/f_HvoipFcA8" allowfullscreen></iframe>
+<h3>Jungle Cruise 2</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/eHp3MbsCbMg" allowfullscreen></iframe>
+<h3>Uncharted</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/fb5ELWi-atg" allowfullscreen></iframe>
+<h3>Jurassic World Dominion</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/XtFI7SNtVpY" allowfullscreen></iframe>
+<h3>Kingdom of the Planet of the Apes</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/hDZ7y8RP5HE" allowfullscreen></iframe>
+<h3>Moana 2</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/U-sR2YkaG4M" allowfullscreen></iframe>
+<h3>Aquaman and the Lost Kingdom</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/rBxcF-r9X7A" allowfullscreen></iframe>
+<h3>Jumanji: The Next Level</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/nfKO9rYDmE8" allowfullscreen></iframe>
+<h3>The Lost City</h3>
+</div>
+
+<div class="movie">
+<iframe src="https://www.youtube.com/embed/naQr0uTrH_s" allowfullscreen></iframe>
+<h3>Pirates of the Caribbean: Dead Men Tell No Tales</h3>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<footer>
+    ©️ 2026 ANGEMAX • Movie Trailers
+</footer>
 
 <script>
 function searchMovies() {
-    let input = document.getElementById("search").value.toLowerCase();
-    let movies = document.getElementsByClassName("movie");
+    let input = document.querySelector(".search").value.toLowerCase();
+    let movies = document.querySelectorAll(".movie");
 
-    for (let i = 0; i < movies.length; i++) {
-        let title = movies[i].innerText.toLowerCase();
+    movies.forEach(movie => {
+        let title = movie.querySelector("h3").innerText.toLowerCase();
 
         if (title.includes(input)) {
-            movies[i].style.display = "";
+            movie.style.display = "";
         } else {
-            movies[i].style.display = "none";
+            movie.style.display = "none";
         }
-    }
+    });
 }
 </script>
 
