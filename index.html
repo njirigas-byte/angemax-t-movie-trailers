@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@@ -19,6 +18,7 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ANGEMAX T-MOVIE TRAILERS</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050505;
     color: white;
 }
 
@@ -9,7 +22,21 @@
 header {
     text-align: center;
     padding: 25px 15px;
-@@ -40,6 +40,7 @@
+    background: linear-gradient(135deg, #111, #250000);
+    border-bottom: 2px solid #e50914;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #e50914;
+    text-shadow: 0 0 15px #e50914;
+}
+
+.subtitle {
+    margin-top: 8px;
+    color: #ddd;
     font-size: 14px;
 }
 
@@ -17,36 +44,44 @@ header {
 .search-box {
     margin: 20px auto;
     max-width: 600px;
-@@ -49,15 +50,20 @@
+    padding: 0 15px;
+}
+
 .search-box input {
     width: 100%;
     padding: 14px 18px;
-    border: none;
     border: 1px solid #444;
     border-radius: 30px;
     outline: none;
     font-size: 16px;
     background: #222;
     color: white;
-    border: 1px solid #444;
 }
 
 .search-box input:focus {
     border-color: #e50914;
     box-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
 }
+
 /* CATEGORIES */
 .categories {
     display: flex;
     justify-content: center;
-@@ -73,19 +79,23 @@
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 15px 20px;
+}
+
+.categories button {
+    background: #222;
+    color: white;
+    border: 1px solid #555;
     padding: 10px 16px;
     border-radius: 20px;
     cursor: pointer;
     transition: 0.25s;
 }
 
-.categories button:hover {
 .categories button:hover,
 .categories button.active {
     background: #e50914;
@@ -55,7 +90,6 @@ header {
 
 /* CONTAINER */
 .container {
-    max-width: 1200px;
     max-width: 1300px;
     margin: auto;
     padding: 10px 15px 40px;
@@ -65,14 +99,14 @@ header {
 .section-title {
     margin-top: 30px;
     margin-bottom: 15px;
-@@ -94,65 +104,105 @@
+    color: #e50914;
+    border-left: 4px solid #e50914;
     padding-left: 10px;
 }
 
 /* MOVIE GRID */
 .movies {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 18px;
 }
@@ -80,31 +114,27 @@ header {
 /* MOVIE CARD */
 .movie {
     background: #151515;
-    border-radius: 12px;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #292929;
-    transition: 0.3s;
     transition: 0.3s ease;
 }
 
 .movie:hover {
-    transform: translateY(-5px);
     transform: translateY(-7px);
     border-color: #e50914;
-    box-shadow: 0 5px 20px rgba(229,9,20,0.25);
     box-shadow: 0 8px 25px rgba(229, 9, 20, 0.3);
 }
 
 /* NETFLIX STYLE POSTER */
 .movie-poster {
-    height: 130px;
     width: 100%;
     aspect-ratio: 2 / 3;
     background: linear-gradient(135deg, #300000, #111);
     overflow: hidden;
     position: relative;
 }
+
 .movie-poster img {
     width: 100%;
     height: 100%;
@@ -112,9 +142,11 @@ header {
     display: block;
     transition: transform 0.4s ease;
 }
+
 .movie:hover .movie-poster img {
     transform: scale(1.05);
 }
+
 /* Fallback when poster is missing */
 .movie-poster.fallback::before {
     content: "🎬";
@@ -123,26 +155,22 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 45px;
     font-size: 55px;
 }
 
 /* MOVIE INFO */
 .movie-info {
-    padding: 15px;
     padding: 13px;
 }
 
 .movie h3 {
     margin: 0 0 8px;
-    font-size: 18px;
     font-size: 16px;
     line-height: 1.3;
 }
 
 .genre {
     color: #aaa;
-    font-size: 13px;
     font-size: 12px;
     margin-bottom: 12px;
 }
@@ -154,8 +182,6 @@ header {
     text-decoration: none;
     background: #e50914;
     color: white;
-    padding: 11px;
-    border-radius: 7px;
     padding: 10px;
     border-radius: 6px;
     font-weight: bold;
@@ -175,45 +201,50 @@ header {
     display: none;
     grid-column: 1 / -1;
 }
+
 /* FOOTER */
 footer {
     text-align: center;
     padding: 25px;
-@@ -161,20 +211,58 @@
+    background: #111;
+    color: #888;
     margin-top: 30px;
 }
 
-.no-results {
-    text-align: center;
-    padding: 40px;
-    color: #aaa;
-    display: none;
 /* MOBILE */
 @media (max-width: 600px) {
+
     .logo {
         font-size: 30px;
     }
+
     .subtitle {
         font-size: 12px;
     }
+
     .movies {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
+
     .movie-info {
         padding: 10px;
     }
+
     .movie h3 {
         font-size: 14px;
     }
+
     .genre {
         font-size: 11px;
     }
+
     .trailer-btn {
         font-size: 12px;
         padding: 9px;
     }
 }
+
 /* VERY SMALL PHONES */
 @media (max-width: 350px) {
     .movies {
@@ -226,51 +257,57 @@ footer {
 <body>
 
 <header>
+
     <div class="logo">ANGEMAX</div>
-    <div class="subtitle">T-MOVIE TRAILERS 🎬 | Watch the latest movie trailers</div>
+
     <div class="subtitle">
         T-MOVIE TRAILERS 🎬 | Watch the latest movie trailers
     </div>
 
     <div class="search-box">
         <input
-@@ -184,401 +272,418 @@
+            type="text"
+            id="search"
+            placeholder="🔍 Search for a movie..."
             onkeyup="searchMovies()"
         >
     </div>
+
 </header>
 
 <div class="categories">
-    <button onclick="showCategory('all')">All</button>
-    <button onclick="showCategory('action')">💥 Action</button>
-    <button onclick="showCategory('horror')">👻 Horror / Thriller</button>
-    <button onclick="showCategory('scifi')">🚀 Sci-Fi / Adventure</button>
-    <button onclick="showCategory('comedy')">😂 Comedy / Popular</button>
+
     <button onclick="showCategory('all')">
         All
     </button>
+
     <button onclick="showCategory('action')">
         💥 Action
     </button>
+
     <button onclick="showCategory('horror')">
         👻 Horror / Thriller
     </button>
+
     <button onclick="showCategory('scifi')">
         🚀 Sci-Fi / Adventure
     </button>
+
     <button onclick="showCategory('comedy')">
         😂 Comedy / Popular
     </button>
+
 </div>
 
 <div class="container">
 
 <!-- ================= ACTION ================= -->
+
 <h2 class="section-title">🔥 Action</h2>
+
 <div class="movies">
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/red-notice.jpg" alt="Red Notice poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -279,12 +316,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>Red Notice</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=Red+Notice+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/the-covenant.jpg" alt="The Covenant poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -293,12 +328,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>The Covenant</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Covenant+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/john-wick-4.jpg" alt="John Wick Chapter 4 poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -307,12 +340,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>John Wick: Chapter 4</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=John+Wick+Chapter+4+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/extraction-2.jpg" alt="Extraction 2 poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -321,12 +352,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>Extraction 2</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=Extraction+2+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/mission-impossible-dead-reckoning.jpg" alt="Mission Impossible Dead Reckoning poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -335,12 +364,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>Mission: Impossible – Dead Reckoning</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=Mission+Impossible+Dead+Reckoning+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/the-gray-man.jpg" alt="The Gray Man poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -349,12 +376,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>The Gray Man</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Gray+Man+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/nobody.jpg" alt="Nobody poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -363,12 +388,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>Nobody</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=Nobody+movie+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/the-equalizer-3.jpg" alt="The Equalizer 3 poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -377,12 +400,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>The Equalizer 3</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Equalizer+3+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/den-of-thieves-2.jpg" alt="Den of Thieves 2 poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -391,12 +412,10 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>Den of Thieves 2: Pantera</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=Den+of+Thieves+2+Pantera+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
 
 <div class="movie" data-category="action">
-<div class="movie-poster">🎬</div>
 <div class="movie-poster">
 <img src="posters/ballerina.jpg" alt="Ballerina poster"
 onerror="this.style.display='none';this.parentElement.classList.add('fallback');">
@@ -405,348 +424,173 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 <h3>Ballerina</h3>
 <div class="genre">Action</div>
 <a class="trailer-btn" href="https://www.youtube.com/results?search_query=Ballerina+2025+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 </div>
 </div>
+
 <!-- ================= HORROR ================= -->
 
 <h2 class="section-title">👻 Horror / Thriller</h2>
+
 <div class="movies">
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>The Day of the Jackal</h3>
-<div class="genre">Thriller</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Day+of+the+Jackal+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/day-of-the-jackal.jpg" alt="The Day of the Jackal poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>The Day of the Jackal</h3><div class="genre">Thriller</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Day+of+the+Jackal+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>Alien: Romulus</h3>
-<div class="genre">Horror / Sci-Fi</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Alien+Romulus+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/alien-romulus.jpg" alt="Alien Romulus poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Alien: Romulus</h3><div class="genre">Horror / Sci-Fi</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Alien+Romulus+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>Longlegs</h3>
-<div class="genre">Horror / Thriller</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Longlegs+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/longlegs.jpg" alt="Longlegs poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Longlegs</h3><div class="genre">Horror / Thriller</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Longlegs+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>A Quiet Place: Day One</h3>
-<div class="genre">Horror</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=A+Quiet+Place+Day+One+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/a-quiet-place-day-one.jpg" alt="A Quiet Place Day One poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>A Quiet Place: Day One</h3><div class="genre">Horror</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=A+Quiet+Place+Day+One+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>The Substance</h3>
-<div class="genre">Horror / Thriller</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Substance+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/the-substance.jpg" alt="The Substance poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>The Substance</h3><div class="genre">Horror / Thriller</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Substance+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>Trap</h3>
-<div class="genre">Thriller</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Trap+2024+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/trap.jpg" alt="Trap poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Trap</h3><div class="genre">Thriller</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Trap+2024+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>Smile 2</h3>
-<div class="genre">Horror</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Smile+2+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/smile-2.jpg" alt="Smile 2 poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Smile 2</h3><div class="genre">Horror</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Smile+2+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>The First Omen</h3>
-<div class="genre">Horror</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+First+Omen+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/the-first-omen.jpg" alt="The First Omen poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>The First Omen</h3><div class="genre">Horror</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+First+Omen+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>Heretic</h3>
-<div class="genre">Horror / Thriller</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Heretic+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/heretic.jpg" alt="Heretic poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Heretic</h3><div class="genre">Horror / Thriller</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Heretic+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="horror">
-<div class="movie-poster">👻</div>
-<div class="movie-info">
-<h3>Werewolves</h3>
-<div class="genre">Horror / Action</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Werewolves+2024+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/werewolves.jpg" alt="Werewolves poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Werewolves</h3><div class="genre">Horror / Action</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Werewolves+2024+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
+
 <!-- ================= SCI-FI ================= -->
 
 <h2 class="section-title">🚀 Sci-Fi / Adventure</h2>
+
 <div class="movies">
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Dune: Part Two</h3>
-<div class="genre">Sci-Fi</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Dune+Part+Two+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/dune-part-two.jpg" alt="Dune Part Two poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Dune: Part Two</h3><div class="genre">Sci-Fi</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Dune+Part+Two+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Furiosa: A Mad Max Saga</h3>
-<div class="genre">Action / Adventure</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Furiosa+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/furiosa.jpg" alt="Furiosa poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Furiosa: A Mad Max Saga</h3><div class="genre">Action / Adventure</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Furiosa+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Kingdom of the Planet of the Apes</h3>
-<div class="genre">Sci-Fi / Adventure</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Kingdom+of+the+Planet+of+the+Apes+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/kingdom-planet-apes.jpg" alt="Kingdom of the Planet of the Apes poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Kingdom of the Planet of the Apes</h3><div class="genre">Sci-Fi / Adventure</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Kingdom+of+the+Planet+of+the+Apes+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Atlas</h3>
-<div class="genre">Sci-Fi</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Atlas+2024+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/atlas.jpg" alt="Atlas poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Atlas</h3><div class="genre">Sci-Fi</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Atlas+2024+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Godzilla x Kong: The New Empire</h3>
-<div class="genre">Adventure / Sci-Fi</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Godzilla+x+Kong+The+New+Empire+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/godzilla-x-kong.jpg" alt="Godzilla x Kong The New Empire poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Godzilla x Kong: The New Empire</h3><div class="genre">Adventure / Sci-Fi</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Godzilla+x+Kong+The+New+Empire+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>The Creator</h3>
-<div class="genre">Sci-Fi</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Creator+2023+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/the-creator.jpg" alt="The Creator poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>The Creator</h3><div class="genre">Sci-Fi</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Creator+2023+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Rebel Moon</h3>
-<div class="genre">Sci-Fi / Adventure</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Rebel+Moon+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/rebel-moon.jpg" alt="Rebel Moon poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Rebel Moon</h3><div class="genre">Sci-Fi / Adventure</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Rebel+Moon+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>TRON: Ares</h3>
-<div class="genre">Sci-Fi</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=TRON+Ares+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/tron-ares.jpg" alt="TRON Ares poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>TRON: Ares</h3><div class="genre">Sci-Fi</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=TRON+Ares+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Avatar: Fire and Ash</h3>
-<div class="genre">Sci-Fi / Adventure</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Avatar+Fire+and+Ash+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/avatar-fire-and-ash.jpg" alt="Avatar Fire and Ash poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Avatar: Fire and Ash</h3><div class="genre">Sci-Fi / Adventure</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Avatar+Fire+and+Ash+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="scifi">
-<div class="movie-poster">🚀</div>
-<div class="movie-info">
-<h3>Jurassic World Rebirth</h3>
-<div class="genre">Adventure / Sci-Fi</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Jurassic+World+Rebirth+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/jurassic-world-rebirth.jpg" alt="Jurassic World Rebirth poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Jurassic World Rebirth</h3><div class="genre">Adventure / Sci-Fi</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Jurassic+World+Rebirth+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
+
 <!-- ================= COMEDY ================= -->
 
 <h2 class="section-title">😂 Comedy / Popular</h2>
+
 <div class="movies">
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>Deadpool & Wolverine</h3>
-<div class="genre">Action / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Deadpool+and+Wolverine+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/deadpool-wolverine.jpg" alt="Deadpool and Wolverine poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Deadpool & Wolverine</h3><div class="genre">Action / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Deadpool+and+Wolverine+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>Free Guy</h3>
-<div class="genre">Action / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Free+Guy+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/free-guy.jpg" alt="Free Guy poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Free Guy</h3><div class="genre">Action / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Free+Guy+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>The Fall Guy</h3>
-<div class="genre">Action / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Fall+Guy+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/the-fall-guy.jpg" alt="The Fall Guy poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>The Fall Guy</h3><div class="genre">Action / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Fall+Guy+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>Bad Boys: Ride or Die</h3>
-<div class="genre">Action / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Bad+Boys+Ride+or+Die+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/bad-boys-ride-or-die.jpg" alt="Bad Boys Ride or Die poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Bad Boys: Ride or Die</h3><div class="genre">Action / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Bad+Boys+Ride+or+Die+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>The Lost City</h3>
-<div class="genre">Adventure / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Lost+City+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/the-lost-city.jpg" alt="The Lost City poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>The Lost City</h3><div class="genre">Adventure / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Lost+City+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>Bullet Train</h3>
-<div class="genre">Action / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Bullet+Train+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/bullet-train.jpg" alt="Bullet Train poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Bullet Train</h3><div class="genre">Action / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Bullet+Train+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>Game Night</h3>
-<div class="genre">Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Game+Night+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/game-night.jpg" alt="Game Night poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Game Night</h3><div class="genre">Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Game+Night+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>The Hitman's Bodyguard</h3>
-<div class="genre">Action / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Hitmans+Bodyguard+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/hitmans-bodyguard.jpg" alt="The Hitman's Bodyguard poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>The Hitman's Bodyguard</h3><div class="genre">Action / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=The+Hitmans+Bodyguard+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>Central Intelligence</h3>
-<div class="genre">Action / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Central+Intelligence+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/central-intelligence.jpg" alt="Central Intelligence poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Central Intelligence</h3><div class="genre">Action / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Central+Intelligence+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
 
 <div class="movie" data-category="comedy">
-<div class="movie-poster">😂</div>
-<div class="movie-info">
-<h3>Anyone But You</h3>
-<div class="genre">Romance / Comedy</div>
-<a class="trailer-btn" href="https://www.youtube.com/results?search_query=Anyone+But+You+official+trailer" target="_blank">▶ Watch Trailer</a>
-</div></div>
 <div class="movie-poster"><img src="posters/anyone-but-you.jpg" alt="Anyone But You poster" onerror="this.style.display='none';this.parentElement.classList.add('fallback');"></div>
 <div class="movie-info"><h3>Anyone But You</h3><div class="genre">Romance / Comedy</div><a class="trailer-btn" href="https://www.youtube.com/results?search_query=Anyone+But+You+official+trailer" target="_blank">▶ Watch Trailer</a></div>
 </div>
@@ -758,24 +602,28 @@ onerror="this.style.display='none';this.parentElement.classList.add('fallback');
 </div>
 
 </div>
+
 <footer>
     © 2026 ANGEMAX T-MOVIE TRAILERS 🎬<br>
     All trailers are linked to YouTube.
 </footer>
 
 <script>
+
 function searchMovies() {
-    let input = document.getElementById("search").value.toLowerCase();
+
     let input = document
         .getElementById("search")
         .value
         .toLowerCase()
         .trim();
+
     let movies = document.querySelectorAll(".movie");
+
     let found = false;
 
     movies.forEach(function(movie) {
-        let title = movie.querySelector("h3").textContent.toLowerCase();
+
         let title = movie
             .querySelector("h3")
             .textContent
@@ -787,7 +635,9 @@ function searchMovies() {
         } else {
             movie.style.display = "none";
         }
+
     });
+
     document.querySelectorAll(".section-title").forEach(function(section) {
         section.style.display = "";
     });
@@ -796,49 +646,69 @@ function searchMovies() {
         found ? "none" : "block";
 }
 
+
 function showCategory(category) {
+
     let movies = document.querySelectorAll(".movie");
+
     let sections = document.querySelectorAll(".section-title");
 
     document.getElementById("search").value = "";
 
     let found = false;
+
     movies.forEach(function(movie) {
-        if (category === "all" ||
-            movie.getAttribute("data-category") === category) {
+
         if (
             category === "all" ||
             movie.getAttribute("data-category") === category
         ) {
+
             movie.style.display = "";
             found = true;
+
         } else {
+
             movie.style.display = "none";
+
         }
+
     });
 
+
     sections.forEach(function(section) {
+
         if (category === "all") {
+
             section.style.display = "";
+
         } else {
+
             let title = section.textContent.toLowerCase();
 
             if (
-@@ -587,17 +692,24 @@ <h3>Anyone But You</h3>
+                (category === "action" && title.includes("action")) ||
+                (category === "horror" && title.includes("horror")) ||
                 (category === "scifi" && title.includes("sci-fi")) ||
                 (category === "comedy" && title.includes("comedy"))
             ) {
+
                 section.style.display = "";
+
             } else {
+
                 section.style.display = "none";
+
             }
+
         }
+
     });
 
-    document.getElementById("noResults").style.display = "none";
     document.getElementById("noResults").style.display =
         found ? "none" : "block";
 }
+
 </script>
 
 </body>
